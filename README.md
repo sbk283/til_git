@@ -120,8 +120,35 @@ git log
 ```bash
 git log --oneline
 ```
-- 하나의 commit 을 상세하게 보기
+- 하나의 commit 을 상세하게 보기 (종료시 Q 누르기)
 
 ```bash
 git show 커밋아이디
+```
+
+### 8. commit 내용 수정하기
+- 바로 전 commit 내용 수정하기
+```bash
+git commit --amend
+```
+
+### 9. `깃허브의 온라인 주소 연결`하기
+```bash
+git remote add 별명 주소
+git remote add origin <깃헙주소>
+```
+
+- 목록보기
+```bash
+git remote -v
+```
+
+- 삭제하기
+```bash
+git remote remove origin
+```
+
+### 10. GitHub로 Push하기
+```bash
+git push -u origin main
 ```
