@@ -152,3 +152,10 @@ git remote remove origin
 ```bash
 git push -u origin main
 ```
+
+### 11. 최소 알아야 하는 git 명령
+```bash
+git add .
+git commit
+git push
+```
