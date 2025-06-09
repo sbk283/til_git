@@ -39,8 +39,8 @@ git config --global core.editor "code --wait"
 
 - 사용자 설정(아이디, email)
 ```bash
-git config --global user.name "sbk283"
-git config --global user.email "sbkcoding@gmail.com"
+git config --global user.name "아이디"
+git config --global user.email "이메일"
 ```
 
 ```bash
@@ -50,7 +50,7 @@ git config --global user.email
 
 # Github
 - 회원가입(https://Github.com)
-- 예제: til_git 저장소 생성 (생략)\
+- 예제: til_git 저장소 생성 (생략)
 
 ## Github 사용자 계정 보안 설정
 - 초기 설정시 다음 내용을 필수로 확인한다. 
@@ -60,3 +60,24 @@ git config --global user.email
 ## Git 작업 및 GitHub 연결 작업 진행
 
 ### 1. 최초 프로젝트 관리를 git으로 설정
+```bash
+git init
+```
+
+### 2. 현재 프로젝트 상태보기
+```bash
+git status
+```
+
+### 3. git 파일 추적하기
+```bash
+git add README.md
+```
+
+### 4.
+
+### 5. 작업히스토리 남기기
+- 간단한 메모 남기기
+```bash
+git commit -m ""
+```
