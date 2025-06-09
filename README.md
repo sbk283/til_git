@@ -81,3 +81,7 @@ git add README.md
 ```bash
 git commit -m ""
 ```
+- 여러줄 작업내용 남기기
+```bash
+git commit
+```
