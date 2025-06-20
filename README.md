@@ -211,3 +211,130 @@ git add .
 git commit
 git push
 ```
+
+# Git 으로 브랜치 관리하기
+
+## Branch 란?
+
+- 개발에서 구현해야 하는 각각의 기능이 있습니다.
+- 하나의 기능을 구현 완료하였다면 소스를 버전으로 보관하는 것.
+- 다음 기능을 구현한다면 새로운 소스 버전을 만들어서 진행하는 것.
+
+## Branch 초기 이름 셋팅
+
+```bash
+git config --global init.defaultBranch main
+```
+
+## Branch 생성하는 법
+
+```bash
+git branch 브랜치명
+git branch trip
+```
+
+## Branch 목록 보는 법
+
+```bash
+git branch
+```
+
+## 원하는 Branch 로 이동하는 법
+
+```bash
+git switch 브랜치명
+git switch trip
+```
+
+## 원하는 Branch 삭제하는 법
+
+```bash
+git branch -d 브랜치명
+
+git branch      // 목록 필수 확인
+git switch main  // 다른 브랜치로 이동
+
+git branch -d trip // 삭제 실습
+```
+
+## 작업이 완료되면 Branch 합치기
+
+```bash
+git merge 대상브랜치이름
+git merge trip
+```
+
+# Git 커밋 관리하기
+
+## 1. 바로 이전 커밋 내용 수정하기
+
+- 커밋을 실행 후 바로 내용을 수정하는 경우
+
+```bash
+git commit --amend 엔터
+
+내용수정 진행, 저장
+
+git log --oneline 엔터
+```
+
+## 2. 오래전 커밋 내용 수정하기 (권장 안해요.)
+
+- 협업에서 문제 발생 소지
+- 커밋 히스토리를 통해서 `해시값` 알아보기
+
+```bash
+git log --oneline 엔터
+```
+
+예)
+
+```bash
+$ git log --oneline
+d1c3309 (HEAD -> main, origin/main) [docs] 브랜치의 이해
+b69b523 [docs] 깃허브 기본 사용 및 연결법
+189efb5 [docs] 깃허브 명령어를 공부하고 있음.
+bd3256d [커밋타입] 커밋 타이틀
+fea3e3b 깃허브 사용법 정리중
+```
+
+- 해시 값 파악 후 실행(^ 기호는 시작이라는 뜻)
+
+```bash
+git rebase -i 해시값^  엔터
+```
+예제)
+
+```bash
+git rebase -i bd3256d^
+```
+예제)
+```bash
+pick bd3256d [커밋타입] 커밋 타이틀
+pick 189efb5 [docs] 깃허브 명령어를 공부하고 있음.
+pick b69b523 [docs] 깃허브 기본 사용 및 연결법
+pick d1c3309 [docs] 브랜치의 이해
+pick 8459f84 진행중
+```
+
+- 위 처럼 나온 곳에서 `pick b69b523` 을 `edit b69b523` 으로 수정
+- `pick`을 `edit` 으로 수정 후 저장
+
+```bash
+pick bd3256d [커밋타입] 커밋 타이틀
+pick 189efb5 [docs] 깃허브 명령어를 공부하고 있음.
+pick b69b523 [docs] 깃허브 기본 사용 및 연결법
+edit d1c3309 [docs] 브랜치의 이해
+pick 8459f84 진행중
+```
+
+- 마무리 해서 메인으로 이동하기
+```bash
+git rebase --continue
+```
+
+## 3. 깃허브에 commit 수정 내용 반영하기
+
+### 3.1. 바로 수정 후 바로 push 하기
+
+### 3.2. 이전 커밋 수정 후 push 하기
