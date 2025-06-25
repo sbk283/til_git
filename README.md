@@ -397,3 +397,37 @@ git clone -b 브랜치명 --single-branch https주소  .
 
 git clone -b jeju --single-branch https~  .
 ```
+
+# 5. 깃허브 협업 과정
+- 팀장(깃허브관리자)과 팀원(fork)으로 구성 권장
+
+### 팀장
+- GitHub 저장소 프로젝트 생성 진행
+- PC에 프로젝트 폴더 만들고 README.md 파일 생성 후 기본구조 생성
+- `git init ~ git push origin main` 과정 진행
+- 팀원에게 fork 요청하기 (Slack 권장 - 실무협업에 많이 사용)
+
+### 팀원
+- 공유받은 깃허브 주소로 접근하여 `fork` 진행하여 프로젝트 복사.
+- PC에 프로젝트 폴더 생성 후 VScode 오픈하여 폴더 열기 진행.
+- 폴더를 열고 `git clone 주소 .` 클론 진행
+
+### 공통과정
+- `git branch 이름`
+- `git switch 이름`
+- 각자 역할에 맞게 작업 진행하기.
+- `git add .` `git commit` 메세지 컨벤션 지키기.
+- `git push origin 이름`
+- 각자 `Pull Request`요청하기.
+- 팀장에게 `PR` 했음을 알린다.
+- 팀장은 본인이 `PR`을 한다.
+- `PR` 진행중 소스를 보고 Conflict(충돌) 발생하면 팀원 호출
+- 서로 리뷰 열심히 하기.
+- 위 과정 반복해서 소스를 전체 main 에 merge 함
+- main 에 merge 했을 시에 main sync 진행.
+- 반드시 main 에서 `sync > update` 진행.
+- `git switch main` 이동하여 `git fetch` 진행 후 `git pull` 진행한다.
+- 가끔 소스 오류 또는 최신 내용이 나오지 않는 경우는 `git merge origin/main`
+- `git branch -d 이름` `git push origin --delete 이름` 본인 branch 삭제하면서 진행
+- `git branch 이름` `git switch 이름` 반복하여 작업하기.
+- 
